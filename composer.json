@@ -1,0 +1,34 @@
+{
+  "name": "erkineren/erkinapp",
+  "type": "project",
+  "description": "A Multipurpose PHP Framework",
+  "keywords": [
+    "erkinapp",
+    "framework"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Erkin Eren",
+      "email": "ernerkin@gmail.com"
+    }
+  ],
+  "config": {
+    "platform": {
+      "php": "7.2"
+    }
+  },
+  "minimum-stability": "stable",
+  "require": {
+    "php": ">=7.2",
+    "erkineren/erkinapp-core": "dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+      "Application\\": "app/"
+    },
+    "classmap": [
+      "libraries/"
+    ]
+  }
+}
