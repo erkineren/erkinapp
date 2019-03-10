@@ -10,6 +10,7 @@ error_reporting(E_ALL);
 
 define('BASE_PATH', __DIR__);
 define('APP_PATH', BASE_PATH . '/app');
+define('LANGUAGE_PATH', BASE_PATH . '/languages');
 
 require_once APP_PATH . '/config.php';
 require BASE_PATH . '/vendor/autoload.php';
@@ -18,4 +19,3 @@ try {
     handleApp();
 } catch (\ErkinApp\Exceptions\ErkinAppException $e) {
 }
-

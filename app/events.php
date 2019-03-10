@@ -12,7 +12,7 @@ use ErkinApp\Events\ControllerActionEvent;
 use ErkinApp\Events\Events;
 use ErkinApp\Events\RequestEvent;
 use ErkinApp\Events\ResponseEvent;
-use Symfony\Component\HttpFoundation\Response;
+use ErkinApp\Events\RoutingEvent;
 
 ErkinApp()->on('Application_Controller_Frontend::after', function (ControllerActionEvent $controllerActionEvent) {
 
@@ -21,6 +21,18 @@ ErkinApp()->on('Application_Controller_Frontend::after', function (ControllerAct
 //    _yaz($controllerActionEvent->controller);
 
 
+});
+
+ErkinApp()->on(Events::ROUTING, function (RoutingEvent $beforeRoutingEvent) {
+
+//    $path = '/test';
+//    $controller = 'Index';
+//    $classname = 'Application\\Controller\\Frontend\\' . $controller;
+//    $method = 'index';
+//    $beforeRoutingEvent->map($path, [
+//        $classname,
+//        $method
+//    ]);
 });
 
 ErkinApp()->on(Events::REQUEST, function (RequestEvent $requestEvent) {
