@@ -6,13 +6,30 @@
  * Time: 23:17
  */
 
+use ErkinApp\Events\ActionNotFoundEvent;
 use ErkinApp\Events\ApiBasicAuthEvent;
 use ErkinApp\Events\CheckLoggedInStatusEvent;
 use ErkinApp\Events\ControllerActionEvent;
+use ErkinApp\Events\ControllerNotFoundEvent;
 use ErkinApp\Events\Events;
 use ErkinApp\Events\RequestEvent;
 use ErkinApp\Events\ResponseEvent;
 use ErkinApp\Events\RoutingEvent;
+use Symfony\Component\HttpFoundation\Response;
+
+ErkinApp()->on(Events::ACTION_NOT_FOUND, function (ActionNotFoundEvent $actionNotFoundEvent) {
+
+    $response = new Response(getView('Frontend/_parts/notfound', ['error' => 'Action not found !']));
+    $response->setStatusCode(Response::HTTP_NOT_FOUND);
+    $actionNotFoundEvent->setResponse($response);
+});
+
+ErkinApp()->on(Events::CONTROLLER_NOT_FOUND, function (ControllerNotFoundEvent $controllerNotFoundEvent) {
+
+    $response = new Response(getView('Frontend/_parts/notfound', ['error' => 'Controller not found !']));
+    $response->setStatusCode(Response::HTTP_NOT_FOUND);
+    $controllerNotFoundEvent->setResponse($response);
+});
 
 ErkinApp()->on('Application_Controller_Frontend::after', function (ControllerActionEvent $controllerActionEvent) {
 
@@ -23,13 +40,13 @@ ErkinApp()->on('Application_Controller_Frontend::after', function (ControllerAct
 
 });
 
-ErkinApp()->on(Events::ROUTING, function (RoutingEvent $beforeRoutingEvent) {
+ErkinApp()->on(Events::ROUTING, function (RoutingEvent $routingEvent) {
 
 //    $path = '/test';
 //    $controller = 'Index';
 //    $classname = 'Application\\Controller\\Frontend\\' . $controller;
 //    $method = 'index';
-//    $beforeRoutingEvent->map($path, [
+//    $routingEvent->map($path, [
 //        $classname,
 //        $method
 //    ]);
