@@ -1,11 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: erkin
- * Date: 15.12.2018
- * Time: 23:17
- */
 
+use Application\Controller\Frontend\Article;
 use ErkinApp\Events\ActionNotFoundEvent;
 use ErkinApp\Events\ApiBasicAuthEvent;
 use ErkinApp\Events\CheckLoggedInStatusEvent;
@@ -15,20 +10,19 @@ use ErkinApp\Events\Events;
 use ErkinApp\Events\RequestEvent;
 use ErkinApp\Events\ResponseEvent;
 use ErkinApp\Events\RoutingEvent;
-use Symfony\Component\HttpFoundation\Response;
 
 ErkinApp()->on(Events::ACTION_NOT_FOUND, function (ActionNotFoundEvent $actionNotFoundEvent) {
 
-    $response = new Response(getView('Frontend/_parts/notfound', ['error' => 'Action not found !']));
-    $response->setStatusCode(Response::HTTP_NOT_FOUND);
-    $actionNotFoundEvent->setResponse($response);
+//    $response = new Response(getView('Frontend/_parts/notfound', ['error' => 'Action not found !']));
+//    $response->setStatusCode(Response::HTTP_NOT_FOUND);
+//    $actionNotFoundEvent->setResponse($response);
 });
 
 ErkinApp()->on(Events::CONTROLLER_NOT_FOUND, function (ControllerNotFoundEvent $controllerNotFoundEvent) {
 
-    $response = new Response(getView('Frontend/_parts/notfound', ['error' => 'Controller not found !']));
-    $response->setStatusCode(Response::HTTP_NOT_FOUND);
-    $controllerNotFoundEvent->setResponse($response);
+//    $response = new Response(getView('Frontend/_parts/notfound', ['error' => 'Controller not found !']));
+//    $response->setStatusCode(Response::HTTP_NOT_FOUND);
+//    $controllerNotFoundEvent->setResponse($response);
 });
 
 ErkinApp()->on('Application_Controller_Frontend::after', function (ControllerActionEvent $controllerActionEvent) {
@@ -50,6 +44,13 @@ ErkinApp()->on(Events::ROUTING, function (RoutingEvent $routingEvent) {
 //        $classname,
 //        $method
 //    ]);
+
+
+//    $routingEvent->map('/deneme/{id}', [Article::class, 'show']);
+    $routingEvent->map('/denemeler', [Article::class, 'index']);
+//    $routingEvent->map('/blog/{_2slug}-{_1id}', [Article::class, 'show']);
+
+
 });
 
 ErkinApp()->on(Events::REQUEST, function (RequestEvent $requestEvent) {

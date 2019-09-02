@@ -9,10 +9,16 @@
 namespace Application\Controller\Frontend;
 
 use ErkinApp\Controller;
+use Symfony\Component\Routing\Annotation\Route;
 
 
 class Index extends Controller
 {
+    /**
+     * @Route("welcome")
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function index()
     {
         // renderView

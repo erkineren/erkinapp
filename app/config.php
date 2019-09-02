@@ -1,8 +1,5 @@
 <?php
 
-use ErkinApp\Events\CheckLoggedInStatusEvent;
-use ErkinApp\Events\Events;
-
 define('DEFAULT_LANGUAGE', 'turkish');
 
 

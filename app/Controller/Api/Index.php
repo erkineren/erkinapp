@@ -11,7 +11,6 @@ namespace Application\Controller\Api;
 
 use ErkinApp\ApiAuthController;
 use ErkinApp\Responses\AjaxResponse;
-use Symfony\Component\HttpFoundation\Session\Session;
 
 class Index extends ApiAuthController
 {

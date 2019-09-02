@@ -21,6 +21,8 @@
   "minimum-stability": "stable",
   "require": {
     "php": ">=7.2",
+    "ext-pdo": "*",
+    "ext-json": "*",
     "erkineren/erkinapp-core": "dev-master"
   },
   "autoload": {
