@@ -6,7 +6,6 @@ return function () {
     $container = ErkinApp()->Container();
 
     $container['classmaps'] = function (Container $c) {
-
         $fnc = function ($ctrlFile) {
             $classname = '/Application' . str_replace(APP_PATH, '', $ctrlFile);
             $classname = substr($classname, 0, strrpos($classname, "."));
