@@ -1,13 +1,6 @@
 DirectoryIndex index.php
 
 RewriteEngine on
-#RewriteBase /erkinapp/
-#RewriteRule ^([0-9a-zA-Z-_]+)-p-([0-9]+)$  index.php/article/show/1 [L]
-#RewriteRule .+-p-(.+) index.php/article/show/$1 [L]
-
-#RewriteRule erkin article/show/1 [L]
-#RewriteRule ^section/([0-9]+)$ index.php/article/show/$1 [L]
-
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f

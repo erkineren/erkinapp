@@ -9,8 +9,8 @@
 namespace Application\Controller\Api;
 
 
-use ErkinApp\ApiAuthController;
-use ErkinApp\Responses\AjaxResponse;
+use ErkinApp\Controller\ApiAuthController;
+use ErkinApp\Response\AjaxResponse;
 
 class Index extends ApiAuthController
 {

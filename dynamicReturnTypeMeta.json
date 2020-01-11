@@ -1,0 +1,14 @@
+{
+  "methodCalls": [
+    {
+      "class": "\\ErkinApp\\ErkinApp",
+      "method": "Get",
+      "position": 0
+    },
+    {
+      "class": "\\ErkinApp\\Container",
+      "method": "get",
+      "position": 0
+    }
+  ]
+}

@@ -1,12 +1,5 @@
 <?php
 
-define('DEFAULT_LANGUAGE', 'turkish');
-
-
-const DB_CONFIG = [
-
-];
-
 /**
  * Default Route Controllers
  */

@@ -1,2 +1,4 @@
 .idea
 vendor/
+var/cache/*/
+var/logs/*/
