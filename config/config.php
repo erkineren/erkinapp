@@ -4,15 +4,18 @@ return [
     'db' => [
         'default' => [
             'host' => 'localhost',
-            'username' => 'root',
+            'username' => '',
             'password' => '',
-            'dbname' => 'test',
+            'dbname' => '',
         ]
     ],
     'phpsettings' => [
         'error_reporting' => E_ALL & ~E_USER_DEPRECATED,
         'display_errors' => 1,
+        'display_startup_errors' => 1,
         'date.timezone' => 'Europe/Istanbul',
+        'max_execution_time' => 3600,
+        'memory_limit' => '256M'
     ],
     'theme' => [
         'name' => 'default',

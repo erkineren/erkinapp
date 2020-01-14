@@ -1,6 +1,5 @@
 <?php
 
-
 return [
-    'hello' => 'Merhaba',
+    'welcome' => 'Selam',
 ];

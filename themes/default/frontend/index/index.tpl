@@ -1,6 +1,5 @@
-{extends file="_includes/head.tpl"}
-{block name="test_block" append}
-    <p>
-        {l name="hello"}{/l}
-    </p>
+{extends file="_includes/layout.tpl"}
+{$meta.title = "ErkinApp"}
+{block name="body" append}
+    <h1>{lang name="welcome"}</h1>
 {/block}

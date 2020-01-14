@@ -11,23 +11,26 @@ use ErkinApp\Event\RoutingEvent;
 use Symfony\Component\HttpFoundation\Response;
 use function ErkinApp\Helpers\getView;
 
+
 ErkinApp()->on(Events::NOT_FOUND, function (NotFoundEvent $notFoundEvent) {
-    $response = new Response(getView('_includes/notfound', ['error' => 'Not Found !']));
+    $response = new Response(getView('_includes/notfound', ['error' => $notFoundEvent->getMessage()]));
     $response->setStatusCode(Response::HTTP_NOT_FOUND);
     $notFoundEvent->setResponse($response);
 });
 
 ErkinApp()->on('Application_Controller_Frontend::before', function (ControllerActionEvent $controllerActionEvent) {
 
-//    $controllerActionEvent->response->setContent($controllerActionEvent->response->getContent() . '<script>alert("asd")</script>');
-
-//    \ErkinApp\Helpers\debugPrint($controllerActionEvent->controller);
-
+    $template = ErkinApp()->TemplateManager()->getTemplate();
+    if ($template instanceof \ErkinApp\Template\Smarty\SmartyTemplate) {
+        $template->getSmarty()->setCaching(false);
+        $template->getSmarty()->setCompileCheck(true);
+    }
 
 });
 
 ErkinApp()->on(Events::ROUTING, function (RoutingEvent $routingEvent) {
-    $routingEvent->mapController('/dynamic/{id}', [\Application\Controller\Frontend\Test::class, 'index2'], ['id' => 123]);
+//    $routingEvent->mapControllerLanguages(['tr' => '/anasayfa','de' => '/startseite'], [\Application\Controller\Frontend\Index::class, 'index']);
+//    \ErkinApp\Helpers\debugPrint(ErkinApp()->AppRoutes()->all());
 });
 
 ErkinApp()->on(Events::REQUEST, function (RequestEvent $requestEvent) {
