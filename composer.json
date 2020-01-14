@@ -23,7 +23,7 @@
     "php": ">=7.2",
     "ext-pdo": "*",
     "ext-json": "*",
-    "erkineren/erkinapp-core": "dev-master"
+    "erkineren/erkinapp-core": "^0.1"
   },
   "autoload": {
     "psr-4": {
